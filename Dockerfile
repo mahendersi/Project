@@ -1,4 +1,4 @@
-# For more information, please refer to https://aka.ms/vscode-docker-python
+# Docker Image for python
 FROM python:3.8-slim-buster
 
 # Keeps Python from generating .pyc files in the container
@@ -10,9 +10,9 @@ ENV PYTHONUNBUFFERED 1
 WORKDIR /app
 ADD . /app
 
-# Switching to a non-root user, please refer to https://aka.ms/vscode-docker-python-user-rights
+# Switching to a non-root user
 RUN useradd appuser && chown -R appuser /app
 USER appuser
 
-# During debugging, this entry point will be overridden. For more information, please refer to https://aka.ms/vscode-docker-python-debug
+# During debugging, this entry point will be overridden.
 CMD ["python", "app.py"]
